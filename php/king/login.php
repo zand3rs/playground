@@ -33,8 +33,45 @@ function authenticate($username, $password) {
 //==============================================================================
 
 session_start();
-if (!isset($_SESSION['user']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   authenticate($_POST['username'], $_POST['password']);
 }
-header('location: index.php');
+
+//-- redirect to landing page if already logged in...
+if (isset($_SESSION['user'])) {
+  header('location: index.php');
+  exit();
+}
 ?>
+
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+
+    <h1>Welcome!</h1>
+
+    <?php
+    if (isset($_SESSION['error'])) {
+      $error_message = $_SESSION['error'];
+      echo "<h2 style='color: red'>$error_message</h2>";
+
+      //-- reset error...
+      unset($_SESSION['error']);
+    }
+    ?>
+
+    <form method='POST' action='login.php'>
+      <input type='text' name='username' placeholder='Username' value='<?php echo $_POST['username']; ?>'>
+      <input type='password' name='password' placeholder='Password' value='<?php echo $_POST['password']; ?>'>
+      <input type='submit' value='Login'>
+    </form>
+
+    <div>
+      <a href='register.php'>Register</a>
+    </div>
+
+  </body>
+</html>

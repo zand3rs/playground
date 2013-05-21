@@ -74,46 +74,46 @@ if (isset($_SESSION['user'])) {
   </head>
   <body>
 
-  <h1>Registration</h1>
+    <h1>Registration</h1>
 
-  <?php
-  if (isset($_SESSION['error'])) {
-    $error_message = $_SESSION['error'];
-    echo "<h2 style='color: red'>$error_message</h2>";
+    <?php
+    if (isset($_SESSION['error'])) {
+      $error_message = $_SESSION['error'];
+      echo "<h2 style='color: red'>$error_message</h2>";
 
-    //-- reset error...
-    unset($_SESSION['error']);
-  }
-  ?>
+      //-- reset error...
+      unset($_SESSION['error']);
+    }
+    ?>
 
-  <form method='POST' action='register.php'>
-  <table border='0' cellpadding='0' cellspacing='4'>
-  <tr>
-    <td>Username</td>
-    <td><input type='text' name='username' value='<?php echo $_POST['username']; ?>'></td>
-  </tr>
-  <tr>
-    <td>Password</td>
-    <td><input type='password' name='password' value='<?php echo $_POST['password']; ?>'></td>
-  </tr>
-  <tr>
-    <td>Confirm Password</td>
-    <td><input type='password' name='confirm_password' value='<?php echo $_POST['confirm_password']; ?>'></td>
-  </tr>
-  <tr>
-    <td>First Name</td>
-    <td><input type='text' name='first_name' value='<?php echo $_POST['first_name']; ?>'></td>
-  </tr>
-  <tr>
-    <td>Last Name</td>
-    <td><input type='text' name='last_name' value='<?php echo $_POST['last_name']; ?>'></td>
-  </tr>
-  <tr>
-    <td><a href='login.php'>Login</a></td>
-    <td align='right'><input type='submit' name='Submit'></td>
-  </tr>
-  </table>
-  </form>
+    <form method='POST' action='register.php'>
+    <table border='0' cellpadding='0' cellspacing='4'>
+    <tr>
+      <td>Username</td>
+      <td><input type='text' name='username' value='<?php echo $_POST['username']; ?>'></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type='password' name='password' value='<?php echo $_POST['password']; ?>'></td>
+    </tr>
+    <tr>
+      <td>Confirm Password</td>
+      <td><input type='password' name='confirm_password' value='<?php echo $_POST['confirm_password']; ?>'></td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+      <td><input type='text' name='first_name' value='<?php echo $_POST['first_name']; ?>'></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><input type='text' name='last_name' value='<?php echo $_POST['last_name']; ?>'></td>
+    </tr>
+    <tr>
+      <td><a href='login.php'>Login</a></td>
+      <td align='right'><input type='submit' name='Submit'></td>
+    </tr>
+    </table>
+    </form>
 
   </body>
 </html>
